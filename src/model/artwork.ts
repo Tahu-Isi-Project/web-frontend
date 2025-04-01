@@ -1,7 +1,7 @@
 import { Tag } from "./tag";
 import { User } from "./user";
 
-export class Replay {
+export class Artwork {
     public id: string;
     public author: User;
     public imgUrl: string;
