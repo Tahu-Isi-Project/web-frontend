@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
+import { SlideTransitionType, SlideTransitionScroll } from "../components/ui/animation";
+
 import { HomeLayout } from "../layouts"
 import { Link } from "../components/ui/navigation";
 
@@ -24,26 +26,36 @@ export default function Home() {
                 Indonesian Touhou Fan Base
               </h3>
             </div>
+
             <img src="/assets/img/banner.png" className="brightness-[40%] -z-10 w-[100%] h-screen object-cover object-center not-sr-only" />
+
           </section>
 
-          <section aria-label="introduction" className="flex sm:flex-col md:flex-row gap-8 sm:mx-4 md:mx-24 dark:text-white">
-            <div className="w-full flex flex-col justify-center sm:gap-12 md:gap-4">
-              <img src="/assets/img/reimu-lost-word.png" alt="" className="absolute opacity-20 -left-60 rounded-full" />
-              <h1 className="text-4xl font-bold shadow-white/20 shadow-text">
-                Apa itu Touhou Project
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Soluta aperiam tempore dicta culpa, quidem dignissimos quasi perspiciatis
-                illo reprehenderit eligendi cupiditate voluptates esse pariatur nam iusto sapiente optio dolorum eum.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Soluta aperiam tempore dicta culpa, quidem dignissimos quasi perspiciatis
-                illo reprehenderit eligendi cupiditate voluptates esse pariatur nam iusto sapiente optio dolorum eum.
-              </p>
+          <section aria-label="introduction" className="flex sm:flex-col md:flex-row gap-8 py-42 sm:mx-4 md:mx-24 dark:text-white">
+            <div className="relative w-full flex flex-col justify-center sm:gap-12 md:gap-4">
+              <SlideTransitionScroll type={SlideTransitionType.Left} className="mb-24">
+                <img src="/assets/img/reimu-lost-word.png" alt="" className="absolute opacity-20 -left-60 rounded-full" />
+                <img src="/assets/img/reimu-lost-word.png" alt="" className="absolute opacity-20 blur-2xl -left-60 rounded-full" />
+              </SlideTransitionScroll >
+
+              <SlideTransitionScroll type={SlideTransitionType.Left}>
+                <h1 className="text-4xl font-bold shadow-white/20 shadow-text">
+                  Apa itu Touhou Project
+                </h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Soluta aperiam tempore dicta culpa, quidem dignissimos quasi perspiciatis
+                  illo reprehenderit eligendi cupiditate voluptates esse pariatur nam iusto sapiente optio dolorum eum.
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Soluta aperiam tempore dicta culpa, quidem dignissimos quasi perspiciatis
+                  illo reprehenderit eligendi cupiditate voluptates esse pariatur nam iusto sapiente optio dolorum eum.
+                </p>
+              </SlideTransitionScroll >
             </div>
             <div className="w-full">
-              <img src="/assets/img/lolk.png" alt="Touhou 15 LoLK" className="brightness-75" />
+              <SlideTransitionScroll type={SlideTransitionType.Right}>
+                <img src="/assets/img/lolk.png" alt="Touhou 15 LoLK" className="brightness-75" />
+              </SlideTransitionScroll>
             </div>
           </section>
 
@@ -75,26 +87,35 @@ export default function Home() {
 
 
           <section aria-label="latest-artwork" className="flex flex-col gap-4">
-            <img src="/assets/img/marisa-lost-word.png" alt="" className="absolute -right-[30%] rounded-full opacity-20 pointer-events-none" />
+            <SlideTransitionScroll type={SlideTransitionType.Right}>
+              <img src="/assets/img/marisa-lost-word.png" alt="" className="absolute -right-[30%] rounded-full opacity-40 blur-2xl pointer-events-none" />
+              <img src="/assets/img/marisa-lost-word.png" alt="" className="absolute -right-[30%] rounded-full opacity-20 pointer-events-none" />
+            </SlideTransitionScroll>
             <h2 className="text-4xl font-bold text-center shadow-white/20 shadow-text dark:text-white">
               Latest Art
             </h2>
             <div className="flex justify-center items-stretch gap-4 sm:mx-4 md:mx-52">
               <div className="flex-1 flex">
-                <ArtworkCard artwork={artworks[0]} className="m-auto w-full h-full" />
+                <SlideTransitionScroll type={SlideTransitionType.Left} className="m-auto w-full h-full">
+                  <ArtworkCard artwork={artworks[0]} className="m-auto w-full h-full" />
+                </SlideTransitionScroll>
               </div>
               <div className="flex-1 flex flex-col gap-4 justify-between">
                 <div className="grid grid-cols-2 gap-4 flex-grow">
                   {artworks.slice(1, 5).map((artwork) => (
-                    <ArtworkCard key={artwork.id} artwork={artwork} className="w-full h-full" />
+                    <SlideTransitionScroll type={SlideTransitionType.Right}>
+                      <ArtworkCard key={artwork.id} artwork={artwork} className="w-full h-full" />
+                    </SlideTransitionScroll>
                   ))}
                 </div>
-                <Link href='' className="group w-full flex justify-center items-center gap-4 py-8 border-2 
+                <SlideTransitionScroll type={SlideTransitionType.Right}>
+                  <Link href='' className="group w-full flex justify-center items-center gap-4 py-8 border-2 
                     border-gray-600 rounded-md font-bold text-lg tracking-wide dark:text-white 
-                    hover:bg-slate-600 bg-black duration-200">
-                  See More
-                  <ArrowRight className="group-hover:translate-x-2 group-hover:animate-pulse duration-200" />
-                </Link>
+                    hover:bg-slate-600 bg-black/50 duration-200">
+                    See More
+                    <ArrowRight className="group-hover:translate-x-2 group-hover:animate-pulse duration-200" />
+                  </Link>
+                </SlideTransitionScroll>
               </div>
             </div>
           </section>
@@ -104,24 +125,30 @@ export default function Home() {
               Latest Replay
             </h2>
             <div className="flex sm:flex-col md:flex-row justify-center items-stretch gap-4 sm:mx-4 md:mx-52">
-              <div className="flex-1 flex">
-                <ReplayCard replay={replays[0]} />
+              <div className="flex-1 flex self-stretch min-h-full">
+                <SlideTransitionScroll type={SlideTransitionType.Left}>
+                  <ReplayCard replay={replays[0]} />
+                </SlideTransitionScroll>
               </div>
               <div className="flex-1 flex flex-col gap-4 justify-between items-center w-full min-h-full self-stretch">
-                <div className="flex flex-col gap-4 w-full h-full self-stretch">
+                <div className="relative flex flex-col gap-4 w-full h-full">
                   {replays.slice(1, 5).map((replay) => (
-                    <ReplaySmallCard key={replay.id} replay={replay} />
+                    <SlideTransitionScroll type={SlideTransitionType.Right} className="relative  h-full w-full self-stretch">
+                      <ReplaySmallCard key={replay.id} replay={replay} />
+                    </SlideTransitionScroll>
                   ))}
                 </div>
-                <Link href='' className="group w-full relative flex justify-center items-center gap-4 py-8 border-2 
+                <SlideTransitionScroll type={SlideTransitionType.Right} className="w-full h-full">
+                  <Link href='' className="group w-full relative flex justify-center items-center gap-4 py-8 border-2 
                     border-gray-600 rounded-md font-bold text-lg tracking-wide 
-                    dark:text-white hover:bg-slate-600 bg-black duration-200">
-                  <img src="/assets/img/lolk.png" alt="" className="absolute w-full inset-0 h-full object-cover object-center opacity-20 pointer-events-none" />
-                  <span>
-                    See More
-                  </span>
-                  <ArrowRight className="group-hover:translate-x-2 group-hover:animate-pulse duration-200" />
-                </Link>
+                    dark:text-white hover:bg-slate-600 bg-black/50 duration-200">
+                    <img src="/assets/img/lolk.png" alt="" className="absolute w-full inset-0 h-full object-cover object-center opacity-20 pointer-events-none" />
+                    <span>
+                      See More
+                    </span>
+                    <ArrowRight className="group-hover:translate-x-2 group-hover:animate-pulse duration-200" />
+                  </Link>
+                </SlideTransitionScroll>
               </div>
             </div>
           </section>
