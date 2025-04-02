@@ -18,32 +18,32 @@ export default function Footer(): ReactNode {
           <h3 className="text-2xl font-bold">Links</h3>
           <ul>
             <li>
-              <Link>
+              <Link href="/">
                 Home
               </Link>
             </li>
             <li>
-              <Link>
+              <Link href="/">
                 Gallery
               </Link>
             </li>
             <li>
-              <Link>
+              <Link href="/">
                 Replay
               </Link>
             </li>
             <li>
-              <Link>
+              <Link href="/">
                 Community
               </Link>
             </li>
             <li>
-              <Link>
+              <Link href="/">
                 Privacy & Policy
               </Link>
             </li>
             <li>
-              <Link>
+              <Link href="/">
                 Contributors
               </Link>
             </li>
@@ -53,7 +53,7 @@ export default function Footer(): ReactNode {
           <h3 className="text-xl font-bold dark:text-white">Community</h3>
           <div className="flex gap-4">
 
-            {communityLinks.map((data) => (
+            {communityLinks.map((data: { name: string, links: string, img: string }) => (
               <a key={data.name} href={data.links}>
                 <img src={data.img} alt={data.name} />
               </a>

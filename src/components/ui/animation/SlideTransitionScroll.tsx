@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, Ref, useRef, useState } from "react";
 import SlideTransition from "./SlideTransition";
 import { useScrollDetection } from "../../../hooks";
 import { SlideTransitionProps } from ".";
@@ -6,7 +6,7 @@ import { SlideTransitionProps } from ".";
 type SlideTransitionScrollProps = SlideTransitionProps;
 
 export default function SlideTransitionScroll(props: SlideTransitionScrollProps): ReactNode {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [wasVisible, setWasVisible] = useState(false);
 
   useScrollDetection(ref, function(rect) {
@@ -21,7 +21,7 @@ export default function SlideTransitionScroll(props: SlideTransitionScrollProps)
 
   return (
     <SlideTransition visible={wasVisible} type={props.type} className={props.className}>
-      <div ref={ref} className="w-full h-full">
+      <div ref={ref as Ref<HTMLDivElement>} className="w-full h-full">
         {props.children}
       </div>
     </SlideTransition>

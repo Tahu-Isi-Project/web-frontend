@@ -18,7 +18,7 @@ export default function Home() {
         <div className="flex flex-col gap-24">
           <section aria-label="banner" className="relative min-h-screen">
             <div className="absolute z-10 flex flex-col gap-4 justify-center items-center bg-linear-to-t w-full h-full 
-            from-black from-5% to-transparent dark:text-white">
+            from-black from-5% to-transparent dark:text-white pointer-events-none">
               <h1 className="text-5xl shadow-white/50 shadow-text font-bold">
                 Tahu Isi Project indonesia
               </h1>
@@ -27,7 +27,7 @@ export default function Home() {
               </h3>
             </div>
 
-            <img src="/assets/img/banner.png" className="brightness-[40%] -z-10 w-[100%] h-screen object-cover object-center not-sr-only" />
+            <img src="/assets/img/banner.png" className="brightness-[40%] -z-10 w-[100%] h-screen object-cover object-center not-sr-only pointer-events-none" />
 
           </section>
 
@@ -103,8 +103,8 @@ export default function Home() {
               <div className="flex-1 flex flex-col gap-4 justify-between">
                 <div className="grid grid-cols-2 gap-4 flex-grow">
                   {artworks.slice(1, 5).map((artwork) => (
-                    <SlideTransitionScroll type={SlideTransitionType.Right}>
-                      <ArtworkCard key={artwork.id} artwork={artwork} className="w-full h-full" />
+                    <SlideTransitionScroll key={artwork.id} type={SlideTransitionType.Right}>
+                      <ArtworkCard artwork={artwork} className="w-full h-full" />
                     </SlideTransitionScroll>
                   ))}
                 </div>
@@ -133,8 +133,8 @@ export default function Home() {
               <div className="flex-1 flex flex-col gap-4 justify-between items-center w-full min-h-full self-stretch">
                 <div className="relative flex flex-col gap-4 w-full h-full">
                   {replays.slice(1, 5).map((replay) => (
-                    <SlideTransitionScroll type={SlideTransitionType.Right} className="relative  h-full w-full self-stretch">
-                      <ReplaySmallCard key={replay.id} replay={replay} />
+                    <SlideTransitionScroll key={replay.id} type={SlideTransitionType.Right} className="relative  h-full w-full self-stretch">
+                      <ReplaySmallCard replay={replay} />
                     </SlideTransitionScroll>
                   ))}
                 </div>

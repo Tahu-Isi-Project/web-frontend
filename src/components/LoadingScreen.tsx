@@ -13,8 +13,6 @@ export interface LoadingScreenProps {
 
 export default function LoadingScreen(props: LoadingScreenProps): ReactNode {
   const [shownContent, setShowContent] = useState<FlavorText[]>([]);
-  const increment = 100 / (props.flavorText.length + 1);
-  const [loadingLength, setLoadingLength] = useState(increment);
   const hasLoaded = useRef(false);
 
   useEffect(() => {
@@ -24,7 +22,6 @@ export default function LoadingScreen(props: LoadingScreenProps): ReactNode {
 
       for (const text of props.flavorText) {
         setShowContent(prev => [...prev, text]);
-        setLoadingLength(prev => prev + 1);
         await sleep(Math.random() * text.time);
       }
     }
@@ -33,7 +30,7 @@ export default function LoadingScreen(props: LoadingScreenProps): ReactNode {
 
   return (
     <div className={cn(
-      "absolute z-100 w-screen h-screen flex flex-col justify-center items-center dark:bg-slate-950 duration-500",
+      "absolute z-100 w-screen h-screen flex flex-col justify-center items-center dark:bg-slate-950 duration-500 pointer-events-none",
       props.className,
     )}>
       <h2 className="font-bold text-3xl dark:text-white shadow-white/50 shadow-text">

@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode, Suspense, useEffect, useState } from "react";
-import LoadingScreen from "@/components/LoadingScreen";
+import LoadingScreen from "../components/LoadingScreen";
 import { FlavorText } from "../components/LoadingScreen";
 import { sleep } from "../utils";
 

@@ -11,4 +11,4 @@ export type SlideTransitionProps = {
   className?: string,
   visible?: boolean,
   type?: SlideTransitionType
-} | PropsWithChildren;
+} & PropsWithChildren;

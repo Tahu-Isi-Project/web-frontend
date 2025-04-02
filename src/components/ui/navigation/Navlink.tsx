@@ -5,12 +5,13 @@ import { cn } from "../../../utils";
 type NavlinkProps = {
   href: string,
   active?: boolean,
-} | PropsWithChildren
+  className?: string,
+} & PropsWithChildren;
 
 export default function Navlink(props: NavlinkProps): ReactNode {
   return (
     <div className="relative group">
-      <Link href={props.href} className="text-xl">
+      <Link href={props.href} className={cn("text-xl", props.className)}>
         <span className={props.active ? 'font-bold shadow-white/20 shadow-text' : ''}>
           {props.children}
         </span>

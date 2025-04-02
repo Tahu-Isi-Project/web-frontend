@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 import { cn } from "../../../utils";
 import { SlideTransitionProps, SlideTransitionType } from ".";
 
