@@ -1,9 +1,15 @@
-import Home from '@/pages/Home';
+import { lazy } from 'react';
+import Loader from '@/lib/Loader';
+
+// TODO : Implement custom router that support this loading screen feature (or just scrap that idea)
+const HomeLazy = lazy(() => import('./pages/Home'));
 
 function App() {
   return (
     <div className='dark'>
-      <Home></Home>
+      <Loader>
+        <HomeLazy />
+      </Loader>
     </div>
   )
 }
