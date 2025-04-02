@@ -42,7 +42,7 @@ export default function LoadingScreen(props: LoadingScreenProps): ReactNode {
 
       <div className="relative min-h-[48vh] w-[24vw] sm:w-[82vw] md:w-[60vw] lg:w-[42vw] flex flex-col-reverse items-start justify-center overflow-hidden dark:text-white">
         {shownContent.map((content) =>
-          <span key={content.text} className="font-bold">
+          <span key={content.text} className="font-bold fade-in">
             [{
               "\u00A0".repeat(
                 5 - content.time.toString().length >= 0

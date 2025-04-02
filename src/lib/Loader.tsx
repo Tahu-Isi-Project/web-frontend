@@ -27,12 +27,12 @@ export default function Loader(props: LoaderProps): ReactNode {
   const flavorText = [
     { time: 0, text: "Booting" },
     { time: 1, text: "Load minimal resources" },
-    { time: 12, text: "Loading assets" },
-    { time: 24, text: "Loading tailwind" },
-    { time: 42, text: "Loading content" },
-    { time: 52, text: "Content loaded" },
-    { time: 72, text: "Starting app" },
-    { time: 102, text: "Finishing" },
+    { time: 52, text: "Loading assets" },
+    { time: 72, text: "Loading tailwind" },
+    { time: 82, text: "Loading content" },
+    { time: 92, text: "Content loaded" },
+    { time: 102, text: "Starting app" },
+    { time: 142, text: "Finishing" },
   ] as FlavorText[];
 
   async function loadDone() {
