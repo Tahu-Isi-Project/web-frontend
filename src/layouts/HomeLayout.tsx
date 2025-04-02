@@ -6,13 +6,13 @@ type HomeLayoutProps = {
 } | PropsWithChildren
 
 export default function HomeLayout(props: HomeLayoutProps): ReactNode {
-    return (
-        <>
-            <Navbar></Navbar>
-            <div>
-                {props.children ? props.children : ''}
-            </div>
-            <Footer></Footer>
-        </>
-    );
+  return (
+    <>
+      <Navbar></Navbar>
+      <div>
+        {props.children ? props.children : ''}
+      </div>
+      <Footer></Footer>
+    </>
+  );
 }

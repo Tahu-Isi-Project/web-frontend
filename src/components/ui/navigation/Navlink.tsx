@@ -1,11 +1,23 @@
 import { PropsWithChildren, ReactNode } from "react";
+import Link from "./Link";
+import { cn } from "../../../utils";
 
 type NavlinkProps = {
-    href: string,
+  href: string,
+  active?: boolean,
 } | PropsWithChildren
 
 export default function Navlink(props: NavlinkProps): ReactNode {
-    return (
-        <a href={props.href}>{props.children}</a>
-    );
+  return (
+    <div className="relative group">
+      <Link href={props.href} className="text-xl">
+        <span className={props.active ? 'font-bold shadow-white/20 shadow-text' : ''}>
+          {props.children}
+        </span>
+      </Link>
+      <span className={cn("absolute -bottom-1 right-0 z-10 h-[2px] w-0 bg-black dark:bg-white duration-300",
+        props.active ? 'w-full' : 'group-hover:w-full'
+      )}></span>
+    </div>
+  );
 }

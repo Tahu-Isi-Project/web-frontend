@@ -1,3 +1,3 @@
 export enum Game {
-    TouhouLoLK = "Touhou LoLK",
+  TouhouLoLK = "Touhou LoLK",
 };
